@@ -39,6 +39,9 @@ group :development, :test do
   gem 'faker'
   gem 'database_cleaner'
 end
+group :test do
+  gem 'simplecov', require: false
+end
 
 group :development do
   gem 'listen', '>= 3.0.5', '< 3.2'
