@@ -22,3 +22,9 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+#Error that needs fixing
+ Users API Post /v1/users When the request is invalid returns a validation failure message
+     Failure/Error: params.require(:user).permit(:user_name, :first_name, :last_name, :email, :password)
+     
+     ActionController::ParameterMissing:
+       param is missing or the value is empty: user
