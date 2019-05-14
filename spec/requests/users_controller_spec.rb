@@ -77,7 +77,7 @@ RSpec.describe 'Users API', type: :request do
       end
       it 'returns a validation failure message' do
         expect(response.body).to match(
-          /Validation failed: Email can't be blank, Email can't be blank/
+          /Validation failed: Email can't be blank/
         )
       end
     end
