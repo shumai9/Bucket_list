@@ -1,17 +1,17 @@
 require 'rails_helper'
 
-Rspec.describe AuthorizeApiRequest do 
-  #create user
-  let(:user) {create(:user)}
-  #Mock 'Authorization' header
-  let(:header){{'Authorization' => token_gererator(user.id)}}
-  #invalid request subject
-  subject(:invalid_request_obj){ described_class.new()}
-  #valid request subject 
-  subject(:request_obj) {described_class.new(header)}
+RSpec.describe AuthorizeApiRequest do
+  # Create test user
+  let(:user) { create(:user) }
+  # Mock `Authorization` header
+  let(:header) { { 'Authorization' => token_generator(user.id) } }
+  # Invalid request subject
+  subject(:invalid_request_obj) { described_class.new({}) }
+  # Valid request subject
+  subject(:request_obj) { described_class.new(header) }
 
-  #Test suite for AuthorizationRequest#call
-  #This is our entry point into th service class
+  # Test Suite for AuthorizeApiRequest#call
+  # This is our entry point into the service class
   describe '#call' do
     # returns user object when request is valid
     context 'when valid request' do
@@ -70,4 +70,3 @@ Rspec.describe AuthorizeApiRequest do
     end
   end
 end
-The 
