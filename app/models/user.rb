@@ -1,4 +1,8 @@
 class User < ApplicationRecord
+  #associations
+  has_many :bucket
+  has_many :list, through: :bucket
+  
   # encrypt password
   has_secure_password
   
