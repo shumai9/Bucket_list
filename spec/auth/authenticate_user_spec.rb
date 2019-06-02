@@ -14,7 +14,6 @@ RSpec.describe 'AuthenticateUser' do
       it 'returns an auth token' do
         token = valid_auth_obj.call
         expect(token).not_to be_nil
-        p token
       end
     end
     # raise Authentication Error when invalid request

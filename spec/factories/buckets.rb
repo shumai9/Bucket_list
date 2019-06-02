@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :bucket do
-    title { "MyString" }
-    author { "MyString" }
+    title { Faker::Books::Lovecraft.word}
+    author { Faker::Name.name}
     user { nil }
   end
 end
