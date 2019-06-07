@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
-RSpec.describe 'AuthenticateUser' do 
+RSpec.describe 'AuthenticateUser' do
   # create test user
-  let(:user){ create(:user)}
-  # valid request subject  
+  let(:user) { create(:user) }
+  # valid request subject
   subject(:valid_auth_obj) { AuthenticateUser.new(user.email, user.password) }
   # invalid request subject
   subject(:invalid_auth_obj) { AuthenticateUser.new('foo', 'bar') }

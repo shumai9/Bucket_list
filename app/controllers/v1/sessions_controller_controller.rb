@@ -1,2 +1,6 @@
-class V1::SessionsControllerController < ApplicationController
+# frozen_string_literal: true
+
+module V1
+  class SessionsControllerController < ApplicationController
+  end
 end

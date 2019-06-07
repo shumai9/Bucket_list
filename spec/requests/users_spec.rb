@@ -1,21 +1,30 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe 'Users of API', type: :request do
   let(:user) { build(:user) }
   let(:headers) { valid_headers.except('Authorization') }
-  
   let(:valid_attributes) do
     attributes_for(:user, password_confirmation: user.password)
+  end
+  let(:str_to_match) do
+    ['Validation failed: ',
+     "Password can't be blank, ",
+     "Email can't be blank, ",
+     "First name can't be blank, ",
+     "Last name can't be blank, ",
+     "Password digest can't be blank"]
   end
 
   # User signup test suite
   describe 'POST /signup' do
     context 'when valid request' do
-      before{
+      before do
         post '/signup',
-        params: valid_attributes.to_json,
-        headers: headers
-      }
+             params: valid_attributes.to_json,
+             headers: headers
+      end
 
       it 'creates a new user' do
         expect(response).to have_http_status(201)
@@ -31,9 +40,6 @@ RSpec.describe 'Users of API', type: :request do
     end
 
     context 'when invalid request' do
-      let(:str_to_match){["Validation failed: ","Password can't be blank, ",
-        "Email can't be blank, ","First name can't be blank, ",
-        "Last name can't be blank, ", "Password digest can't be blank"]}
       before { post '/signup', params: {}, headers: headers }
 
       it 'does not create a new user' do
@@ -46,4 +52,3 @@ RSpec.describe 'Users of API', type: :request do
     end
   end
 end
-

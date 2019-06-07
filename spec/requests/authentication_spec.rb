@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe 'Authentication', type: :request do
@@ -21,7 +23,7 @@ RSpec.describe 'Authentication', type: :request do
       }.to_json
     end
 
-    # set request.headers to our custon headers
+    # set request.headers to our custom headers
     # before { allow(request).to receive(:headers).and_return(headers) }
 
     # returns auth token when request is valid

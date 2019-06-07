@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Message
   def self.not_found(record = 'record')
     "Sorry, #{record} not found."
@@ -30,7 +32,8 @@ class Message
   def self.expired_token
     'Sorry, your token has expired. Please login to continue.'
   end
-  def self.resource_not_created(resource= "resource")
+
+  def self.resource_not_created(resource = 'resource')
     "Sorry #{resource} not created"
   end
 end

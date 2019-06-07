@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module ExceptionHandler
   # provides the more graceful `included` method
   extend ActiveSupport::Concern
@@ -6,7 +8,6 @@ module ExceptionHandler
   class AuthenticationError < StandardError; end
   class MissingToken < StandardError; end
   class InvalidToken < StandardError; end
-
 
   included do
     # Define custom handlers
@@ -18,6 +19,7 @@ module ExceptionHandler
     rescue_from ActiveRecord::RecordNotFound do |e|
       json_response({ message: e.message }, :not_found)
     end
+
     private
 
     # JSON response with message; Status code 422 - unprocessable entity

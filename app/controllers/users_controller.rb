@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class UsersController < ApplicationController
-  #as we dont require token to signup user
+  # as we dont require token to signup user
   skip_before_action :authorize_request, only: :create
   # POST /signup
   # return authenticated token upon signup
